@@ -104,12 +104,12 @@ function evaluarExpresion() {
     let expresion = current.replace(/x/g, "*");
 
     try {
-        // Detectar división por cero
+        
         if (expresion.includes("/0")) {
             throw new Error("Division por cero");
         }
 
-        let resultado = eval(expresion); // eval(expresion)
+        let resultado = eval(expresion); 
 
         if (!isFinite(resultado)) 
             throw new Error("Infinito");
@@ -119,7 +119,7 @@ function evaluarExpresion() {
         pantalla.value = resultado;
         current = resultado.toString();
 
-        // Después de 3 segundos, reiniciar a cero
+        
         setTimeout(() => {
             current = "0";
             pantalla.value = current;
