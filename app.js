@@ -48,20 +48,6 @@ operadores.forEach(boton => {
             return;
         }
 
-        
-        if (op === "%") {
-            try {
-                let numero = parseFloat(current);
-                if (isNaN(numero)) throw new Error("Expresión inválida");
-                current = (numero / 100).toString();
-                pantalla.value = current;
-            } catch (error) {
-                pantalla.value = "Error";
-            }
-            return;
-        }
-
-        
         if (op === "=") {
             try {
                 evaluarExpresion();
@@ -77,7 +63,7 @@ operadores.forEach(boton => {
             return;
         }
 
-        if (["+", "-", "x", "/"].includes(op)) {
+        if (["+", "-", "x", "/","%"].includes(op)) {
             current += op;
             pantalla.value = current;
         }
@@ -102,11 +88,26 @@ function DeleteLast() {
 function evaluarExpresion() {
 
     let expresion = current.replace(/x/g, "*");
+     setTimeout(() => {
+            current = "0";
+            pantalla.value = current;
+        }, 3000);
 
     try {
         
         if (expresion.includes("/0")) {
             throw new Error("Division por cero");
+        }
+        if (expresion.includes ("%")) {
+            try {
+                let numero = parseFloat(current);
+                if (isNaN(numero)) throw new Error("Expresión inválida");
+                current = (numero / 100).toString();
+                pantalla.value = current;
+            } catch (error) {
+                pantalla.value = "Error";
+            }
+            return;
         }
 
         let resultado = eval(expresion); 
@@ -130,4 +131,5 @@ function evaluarExpresion() {
         current = "0";
     }
 }
+
 
