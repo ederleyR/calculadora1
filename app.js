@@ -64,6 +64,10 @@ operadores.forEach(boton => {
         }
 
         if (["+", "-", "x", "/","%"].includes(op)) {
+            if (["+", "-", "x", "/", "%"].includes(current.slice(-1))) {
+                alert("error!!!");
+                return;
+            }
             current += op;
             pantalla.value = current;
         }
