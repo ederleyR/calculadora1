@@ -93,8 +93,7 @@ function evaluarExpresion() {
 
     let expresion = current.replace(/x/g, "*");
      setTimeout(() => {
-            current = "0";
-            pantalla.value = current;
+            ClearALL();
         }, 3000);
 
     try {
@@ -126,8 +125,7 @@ function evaluarExpresion() {
 
         
         setTimeout(() => {
-            current = "0";
-            pantalla.value = current;
+            ClearALL();
         }, 3000);
 
     } catch (error) {
