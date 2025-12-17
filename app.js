@@ -92,9 +92,6 @@ function DeleteLast() {
 function evaluarExpresion() {
 
     let expresion = current.replace(/x/g, "*");
-     setTimeout(() => {
-            ClearALL();
-        }, 3000);
 
     try {
         
