@@ -123,6 +123,9 @@ function evaluarExpresion() {
 
         pantalla.value = resultado;
         current = resultado.toString();
+        setTimeout(() => {
+            ClearALL();
+        }, 4000);
 
     } catch (error) {
         pantalla.value = "Error";
