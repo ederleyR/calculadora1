@@ -93,6 +93,10 @@ function evaluarExpresion() {
 
     let expresion = current.replace(/x/g, "*");
 
+    setTimeout(() => {
+            ClearALL();
+        }, 4000);
+
     try {
         
         if (expresion.includes("/0")) {
@@ -119,11 +123,6 @@ function evaluarExpresion() {
 
         pantalla.value = resultado;
         current = resultado.toString();
-
-        
-        setTimeout(() => {
-            ClearALL();
-        }, 3000);
 
     } catch (error) {
         pantalla.value = "Error";
